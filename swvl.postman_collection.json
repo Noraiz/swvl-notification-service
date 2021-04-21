@@ -1,0 +1,62 @@
+{
+  "info": {
+    "_postman_id": "9912c88d-55d5-428a-ab81-3ea55b43349f",
+    "name": "swvl",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "create-notification",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"type\": \"PERSONAL\",\n    \"medium\": \"SMS\",\n    \"receivers\": [\n        \"607f1a51d6e4c17ab71e6466\"\n    ],\n    \"subject\": \"Test Subject\",\n    \"text\": \"Test text\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:3001/notification/create",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["notification", "create"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "create-user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "localhost:3001/user/create",
+          "host": ["localhost"],
+          "port": "3001",
+          "path": ["user", "create"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

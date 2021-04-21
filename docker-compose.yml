@@ -1,0 +1,33 @@
+version: "2"
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - mongodb
+      - rabbitmq
+    networks:
+      - app-network
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    restart: unless-stopped
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
